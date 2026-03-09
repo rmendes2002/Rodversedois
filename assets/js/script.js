@@ -412,4 +412,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initGlobalScripts();
     updateActiveNavLink();
     initBarba();
+
+    // =============================================
+    // FORCE MOBILE VIDEO AUTOPLAY
+    // =============================================
+    const forceVideoPlay = () => {
+        const bgVideo = document.getElementById('bg-video');
+        const bgVideoDark = document.getElementById('bg-video-dark');
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+        if (isDark && bgVideoDark && bgVideoDark.paused) {
+            bgVideoDark.play().catch(() => { });
+        } else if (!isDark && bgVideo && bgVideo.paused) {
+            bgVideo.play().catch(() => { });
+        }
+    };
+
+    // Try playing immediately, and also bind to first user interactions
+    // to bypass iOS Low Power Mode / Autoplay restrictions
+    setTimeout(forceVideoPlay, 100);
+    document.addEventListener('touchstart', forceVideoPlay, { once: true });
+    document.addEventListener('scroll', forceVideoPlay, { once: true });
 });
