@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos - Rodverse</title>
+    <meta name="description"
+        content="Explore nossa galeria de projetos criativos — IA, 3D, VR e produção audiovisual inovadora.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Projetos — Rodverse">
+    <meta property="og:description" content="Veja os projetos que criamos usando IA, 3D e realidade virtual.">
+    <meta property="og:image" content="assets/images/logo.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.webp" type="image/webp">
+    <link rel="shortcut icon" href="assets/images/logo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <!-- Preload critical background video -->
+    <link rel="preload" as="video" href="assets/videos/fundo-rodverse.webm">
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=52">
+    <link rel="stylesheet" href="assets/css/projetos.css?v=53">
+</head>
+
+<body class="page-projetos">
+    <!-- Background Video & Image (persistent) -->
+    <div class="video-background fixed-bg">
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="assets/videos/fundo-rodverse.webm" type="video/webm">
+        </video>
+        <video autoplay loop muted playsinline id="bg-video-dark" class="bg-video-dark" style="opacity: 0;">
+            <source src="assets/videos/fundo-rodverse-noite.webm" type="video/webm">
+        </video>
+    </div>
+
+    <div class="hero-overlay fixed-overlay"></div>
+
+    <!-- Persistent Navbar (outside Barba container) -->
+    <nav class="navbar" id="persistent-navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.webp" alt="Rodverse Logo" class="logo-img" loading="eager">
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+            <!-- Language Toggle -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="pt">PT</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <label class="theme-switch" aria-label="Toggle Theme">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="theme-slider">
+                    <span class="icon sun-icon">☀️</span>
+                    <span class="icon moon-icon">🌙</span>
+                </span>
+            </label>
+            <a href="https://wa.me/5521998771912" target="_blank" class="cta-primary">
+                Vamos conversar
+                <div class="cta-icon-wrapper">
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 19L19 5M19 5V15.5M19 5H8.5" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Abrir Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-item">Home</a></li>
+                <li><a href="sobre.html" class="mobile-nav-item">Sobre</a></li>
+                <li><a href="projetos.html" class="mobile-nav-item">Projetos</a></li>
+                <li><a href="contato.html" class="mobile-nav-item">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Barba.js Wrapper -->
+    <div data-barba="wrapper">
+        <div data-barba="container" data-barba-namespace="projetos">
+            <div class="content-container scrollable-content">
+                <!-- Projects Header -->
+                <header class="projects-header">
+                    <span class="projects-overline" style="display: none;"></span>
+                    <h1 class="projects-title" data-i18n="projects_title">Projetos em destaque</h1>
+
+                </header>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid">
+                    <!-- Project Cards will be injected by JS -->
+                </div>
+
+
+
+                <div class="projects-footer">
+                    <a href="https://www.instagram.com/rod.verse?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        target="_blank" class="more-projects-btn" style="text-decoration: none; display: inline-block;"
+                        data-i18n="projects_more_btn">Veja mais ↗</a>
+                </div>
+                <!-- Project Modal -->
+                <div class="project-modal" id="projectModal">
+                    <div class="modal-backdrop"></div>
+                    <div class="modal-content">
+                        <button class="modal-close" aria-label="Close">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 6L6 18M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                        <div class="modal-body">
+                            <div class="modal-media-placeholder">
+                                <div class="modal-video-container"></div>
+                            </div>
+                            <div class="modal-info">
+
+                                <h2 class="modal-title">Project Title</h2>
+                                <p class="modal-description">Project description goes here.</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <script src="assets/js/audio.js?v=1"></script>
+    <script src="assets/js/lang.js?v=2"></script>
+    <script src="assets/js/script.js?v=42"></script>
+    <script src="assets/js/projetos.js?v=48"></script>
+</body>
+
+</html>

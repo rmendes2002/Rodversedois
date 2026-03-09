@@ -1,0 +1,239 @@
+/* About Page Specific Styles */
+
+.page-sobre {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Fix background for scrolling content (Reused from Projetos if needed) */
+.fixed-bg {
+    position: fixed;
+    z-index: -2;
+}
+
+.fixed-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Slightly darker overlay for the About page readability */
+    background: rgba(10, 10, 10, 0.5);
+    z-index: -1;
+    display: block;
+}
+
+.scrollable-content {
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+    padding-bottom: 6rem;
+}
+
+.about-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    /* Added some top spacing below the navbar */
+    margin-top: 5rem;
+}
+
+/* Header Section */
+.about-header {
+    text-align: center;
+    margin-bottom: 6rem;
+}
+
+.about-overline {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.about-title {
+    font-family: var(--font-serif);
+    font-size: 84px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.1;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Single Column Layout */
+.about-content-text-only {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(20, 20, 20, 0.4);
+    border-radius: 24px;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.about-video-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Subtle organic gradient placeholder */
+.about-video-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.5) 0%, rgba(10, 10, 10, 0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Abstract shapes to make placeholder look premium without a real image */
+.about-video-placeholder::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    opacity: 0.6;
+}
+
+.play-button-large {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark);
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-video-container:hover .play-button-large {
+    transform: scale(1.1);
+    background: var(--white);
+}
+
+.play-button-large svg {
+    width: 32px;
+    height: 32px;
+    margin-left: 4px;
+}
+
+/* Right Column (Company Story) */
+.about-column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.story-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.story-title {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.story-paragraph {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 540px;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+    .about-content-grid {
+        gap: 4rem;
+    }
+}
+
+@media (max-width: 968px) {
+
+    /* Tablet Profile (stacked slightly) */
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 5rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .about-title {
+        font-size: 64px;
+    }
+
+    .story-paragraph {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Mobile stacked */
+    .about-header {
+        margin-bottom: 4rem;
+    }
+
+    .about-title {
+        font-size: 48px;
+    }
+
+    .about-content-grid {
+        gap: 3.5rem;
+    }
+
+    .about-video-container {
+        border-radius: 16px;
+    }
+
+    .play-button-large {
+        width: 64px;
+        height: 64px;
+    }
+
+    .play-button-large svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .story-title {
+        font-size: 20px;
+        margin-bottom: 1rem;
+    }
+
+    .story-paragraph {
+        font-size: 16px;
+    }
+}

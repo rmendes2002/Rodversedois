@@ -1,0 +1,19 @@
+# Dev tools & binaries
+cloudflared
+cloudflared.tgz
+
+# Python scripts (dev only)
+*.py
+
+# Editor workspace files
+*.code-workspace
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if ever added)
+node_modules/

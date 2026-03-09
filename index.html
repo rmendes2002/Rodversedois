@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodverse - Agência Premium de Edição Audiovisual</title>
+    <meta name="description"
+        content="Criamos o que parece impossível. Estúdio criativo especializado em IA, 3D, realidade virtual e produção audiovisual.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Rodverse — Estúdio Criativo">
+    <meta property="og:description" content="Criamos o que parece impossível. IA, 3D, VR e produção audiovisual.">
+    <meta property="og:image" content="assets/images/logo.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/logo.webp" type="image/webp">
+    <link rel="shortcut icon" href="assets/images/logo.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+        rel="stylesheet">
+
+    <!-- Preload critical background video -->
+    <link rel="preload" as="video" href="assets/videos/fundo-rodverse.webm">
+
+    <link rel="stylesheet" href="assets/css/styles.css?v=52">
+</head>
+
+<body class="page-home">
+    <!-- SVG Filter for Liquid Hover Effect -->
+    <svg style="width:0;height:0;position:absolute;z-index:-1;" aria-hidden="true" focusable="false">
+        <defs>
+            <filter id="liquid-melt">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.03" numOctaves="3" result="noise" />
+                <feDisplacementMap id="liquid-displacement" in="SourceGraphic" in2="noise" scale="0"
+                    xChannelSelector="R" yChannelSelector="G" result="displacement" />
+            </filter>
+        </defs>
+    </svg>
+
+    <!-- Background Video & Image (persistent) -->
+    <div class="video-background fixed-bg">
+        <video autoplay loop muted playsinline id="bg-video">
+            <source src="assets/videos/fundo-rodverse.webm" type="video/webm">
+        </video>
+        <video autoplay loop muted playsinline id="bg-video-dark" class="bg-video-dark" style="opacity: 0;">
+            <source src="assets/videos/fundo-rodverse-noite.webm" type="video/webm">
+        </video>
+    </div>
+
+    <!-- Persistent Global Overlay -->
+    <div class="hero-overlay fixed-overlay"></div>
+
+    <!-- Persistent Navbar (outside Barba container) -->
+    <nav class="navbar" id="persistent-navbar">
+        <div class="nav-left">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.webp" alt="Rodverse Logo" class="logo-img" loading="eager">
+            </a>
+        </div>
+
+        <div class="nav-center">
+            <ul class="nav-links">
+                <li><a href="sobre.html" data-i18n="nav_sobre">Sobre</a></li>
+                <li><a href="projetos.html" data-i18n="nav_projetos">Projetos</a></li>
+                <li><a href="contato.html" data-i18n="nav_contato">Contato</a></li>
+            </ul>
+        </div>
+
+        <div class="nav-right">
+
+            <!-- Language Toggle -->
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="pt">PT</button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+
+            <label class="theme-switch" aria-label="Toggle Theme">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                <span class="theme-slider">
+                    <span class="icon sun-icon">☀️</span>
+                    <span class="icon moon-icon">🌙</span>
+                </span>
+            </label>
+            <a href="https://wa.me/5521998771912" target="_blank" class="cta-primary">
+                Vamos conversar
+                <div class="cta-icon-wrapper">
+                    <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 19L19 5M19 5V15.5M19 5H8.5" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Abrir Menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <ul class="mobile-nav-list">
+                <li><a href="index.html" class="mobile-nav-item" data-i18n="nav_home">Home</a></li>
+                <li><a href="sobre.html" class="mobile-nav-item" data-i18n="nav_sobre">Sobre</a></li>
+                <li><a href="projetos.html" class="mobile-nav-item" data-i18n="nav_projetos">Projetos</a></li>
+                <li><a href="contato.html" class="mobile-nav-item" data-i18n="nav_contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Barba.js Wrapper -->
+    <div data-barba="wrapper">
+        <div data-barba="container" data-barba-namespace="home" class="page-home">
+            <section class="hero-section">
+                <div class="content-container">
+                    <main class="hero-main">
+                        <div class="hero-text-content">
+                            <h1 class="headline">
+                                <span class="headline-line-1" data-i18n="home_headline_1">Testando os novos
+                                    limites</span>
+                                <span class="headline-line-2" data-i18n="home_headline_2">da criatividade</span>
+                            </h1>
+
+                            <p class="subtext" style="display: none;"></p>
+
+                            <button class="cta-secondary">
+                                <div class="play-icon-wrapper">
+                                    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 5V19L19 12L8 5Z" />
+                                    </svg>
+                                </div>
+                                <span data-i18n="home_reel_btn">Assista ao nosso reel</span>
+                            </button>
+                        </div>
+                    </main>
+                </div>
+            </section>
+
+            <!-- Video Reel Modal -->
+            <div class="reel-modal" id="reelModal">
+                <div class="reel-modal-backdrop"></div>
+                <div class="reel-modal-content">
+                    <button class="reel-modal-close" aria-label="Close Video">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <div class="reel-video-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Barba.js V2 -->
+    <script src="https://unpkg.com/@barba/core@2.9.7/dist/barba.umd.js"></script>
+    <script src="assets/js/audio.js?v=1"></script>
+    <script src="assets/js/lang.js?v=2"></script>
+    <script src="assets/js/script.js?v=42"></script>
+    <script src="assets/js/projetos.js?v=13"></script>
+</body>
+
+</html>
